@@ -1,1 +1,32 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.app__info {
+	-fx-padding: 10px;
+	-fx-background-color: #2E384D;
+	-fx-text-fill: #fff;
+}
+
+.card {
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 50, 0, 0, 0);
+	-fx-background-color: #fff;
+}
+
+.card__label--header {
+	-fx-text-fill: #2E384D;
+	-fx-font-weight: 700;
+	-fx-font-size: 25;
+}
+
+.card__label--description {
+	-fx-text-fill: #2E384D;
+}
+
+.card:hover {
+	-fx-background-color: #2E384D;
+	-fx-cursor: hand;
+}
+
+.card:hover .card__label--header, .card:hover .card__label--description {
+	-fx-text-fill: #fff;
+}
+

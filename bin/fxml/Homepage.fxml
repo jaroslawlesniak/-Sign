@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefWidth="2000.0" styleClass="app__info" text="Strona główna" />
+      <Pane layoutX="175.0" layoutY="160.0" prefHeight="400.0" prefWidth="400.0" styleClass="card">
+         <children>
+            <Label layoutX="45.0" layoutY="200.0" maxWidth="310.0" styleClass="card__label--header" text="Podpisz dokument" wrapText="true" />
+            <Label layoutX="45.0" layoutY="250.0" maxWidth="310.0" styleClass="card__label--description" text="Wybierz tą opcję, aby podpisać nowy dokument. Obsługiwany format plików to pdf." wrapText="true" />
+            <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="45.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="@../resources/setting-panel.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="625.0" layoutY="160.0" prefHeight="400.0" prefWidth="400.0" styleClass="card">
+         <children>
+            <Label layoutX="45.0" layoutY="200.0" maxWidth="310.0" styleClass="card__label--header" text="Wyświetl dokumenty" wrapText="true" />
+            <Label layoutX="45.0" layoutY="250.0" maxWidth="310.0" styleClass="card__label--description" text="Wyświetl wszystkie podpisane oraz otrzymane dokumenty." wrapText="true" />
+            <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="45.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="@../resources/design.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>
