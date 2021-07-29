@@ -11,15 +11,14 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			Parent root = loader.load(getClass().getResource("/fxml/Homepage.fxml"));
+			Parent root = loader.load(getClass().getResource("/fxml/NewSign.fxml"));
 			Scene scene = new Scene(root, 1200, 800);
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			primaryStage.setScene(scene);
 			primaryStage.setMaximized(true);
-			primaryStage.setResizable(false);
-			primaryStage.setTitle("uSign | Podpisywanie dokumentów online (v0.0.1.bf287c)");
+			primaryStage.setTitle("uSign | Podpisywanie dokumentów online (v0.0.1.8b05e21)");
 			
 			primaryStage.show();
 		} catch(Exception e) {

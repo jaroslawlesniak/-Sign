@@ -1,14 +1,27 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+* {
+	-fx-font-family: "Open Sans";
+}
+
 .app__info {
 	-fx-padding: 10px;
 	-fx-background-color: #2E384D;
-	-fx-text-fill: #fff;
+	-fx-text-fill: #FFF;
+}
+
+.app__info--menu-item {
+	-fx-text-fill: #FFF;
+	-fx-cursor: hand;
+}
+
+.app__info--menu-item:hover {
+	-fx-text-fill: #4AC6D6; 
 }
 
 .card {
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 50, 0, 0, 0);
-	-fx-background-color: #fff;
+	-fx-background-color: #FFF;
 }
 
 .card__label--header {
@@ -23,10 +36,26 @@
 
 .card:hover {
 	-fx-background-color: #2E384D;
-	-fx-cursor: hand;
+	-fx-cursor: hand; 
 }
 
 .card:hover .card__label--header, .card:hover .card__label--description {
-	-fx-text-fill: #fff;
+	-fx-text-fill: #FFF;
 }
 
+.btn__light--action, .btn__dark--action {
+	-fx-background-color: #FFF;
+	-fx-text-fill: #2E384D;
+	-fx-cursor: hand;
+	-fx-padding: 10 25;
+}
+
+.btn__light--action {
+	-fx-background-color: #FFF;
+	-fx-text-fill: #2E384D;
+}
+
+.btn__dark--action {
+	-fx-background-color: #2E384D;
+	-fx-text-fill: #FFF;
+}
