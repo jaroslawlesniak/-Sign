@@ -14,18 +14,15 @@
             <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Lista dokumentów" textFill="WHITE" />
          </children>
       </Pane>
-      <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-        <content>
-          <AnchorPane style="-fx-background-color: #FFF;">
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Pane prefHeight="200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Lista dokumentów" textAlignment="CENTER" />
-                     </children>
-                  </Pane>
+                  <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Lista dokumentów" textAlignment="CENTER" />
                </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0" />
    </children>
 </AnchorPane>
