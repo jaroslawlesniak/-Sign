@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneManager {
-	public<T extends Node> void openScene(T node, Scenes scene) {
+	public <T extends Node> void openScene(T node, Scenes scene) {
 		Stage stage = (Stage) node.getScene().getWindow();
 		
 		this.setScene(stage, scene);
@@ -18,6 +18,10 @@ public class SceneManager {
 		this.setScene(stage, scene);
 	}
 	
+	public static <T extends Node> Stage GetCurrentStage(T node) {
+		return (Stage) node.getScene().getWindow();
+	}
+
 	private void setScene(Stage stage, Scenes sceneUrl) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource(sceneUrl.path));
