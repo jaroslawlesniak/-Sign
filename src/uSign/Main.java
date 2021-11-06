@@ -13,7 +13,7 @@ public class Main extends Application {
 		try {
 			SceneManager manager = new SceneManager();
 			
-			manager.openScene(primaryStage, "/fxml/Homepage.fxml", true);
+			manager.openScene(primaryStage, "/fxml/Homepage.fxml");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

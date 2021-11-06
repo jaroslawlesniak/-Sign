@@ -21,12 +21,12 @@ public class Homepage {
 	public void openDocumentsList() {
 		SceneManager manager = new SceneManager();
 
-		manager.openScene(documentsPane, "/fxml/DocumentsList.fxml", true);
+		manager.openScene(documentsPane, "/fxml/DocumentsList.fxml");
 	}
 	
 	public void openSignInDOcument() {
 		SceneManager manager = new SceneManager();
 
-		manager.openScene(documentsPane, "/fxml/NewSign.fxml", true);
+		manager.openScene(documentsPane, "/fxml/NewSign.fxml");
 	}
 }
