@@ -1,5 +1,6 @@
 package controllers;
 
+import enums.Scenes;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +22,12 @@ public class Homepage {
 	public void openDocumentsList() {
 		SceneManager manager = new SceneManager();
 
-		manager.openScene(documentsPane, "/fxml/DocumentsList.fxml");
+		manager.openScene(documentsPane, Scenes.DOCUMENTS);
 	}
 	
 	public void openSignInDocument() {
 		SceneManager manager = new SceneManager();
 
-		manager.openScene(documentsPane, "/fxml/NewSign.fxml");
+		manager.openScene(documentsPane, Scenes.NEW_SIGN);
 	}
 }

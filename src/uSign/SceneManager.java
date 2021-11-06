@@ -1,5 +1,6 @@
 package uSign;
 
+import enums.Scenes;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -7,19 +8,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneManager {
-	public<T extends Node> void openScene(T node, String sceneUrl) {
+	public<T extends Node> void openScene(T node, Scenes scene) {
 		Stage stage = (Stage) node.getScene().getWindow();
 		
-		this.setScene(stage, sceneUrl);
+		this.setScene(stage, scene);
 	}
 	
-	public void openScene(Stage stage, String sceneUrl) {	
-		this.setScene(stage, sceneUrl);
+	public void openScene(Stage stage, Scenes scene) {	
+		this.setScene(stage, scene);
 	}
 	
-	private void setScene(Stage stage, String sceneUrl) {
+	private void setScene(Stage stage, Scenes sceneUrl) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(sceneUrl));
+			Parent root = FXMLLoader.load(getClass().getResource(sceneUrl.path));
 			Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
 
 			scene.getStylesheets().add(getClass().getResource("/uSign/application.css").toExternalForm());

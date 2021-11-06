@@ -1,5 +1,6 @@
 package uSign;
 	
+import enums.Scenes;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -13,7 +14,7 @@ public class Main extends Application {
 		try {
 			SceneManager manager = new SceneManager();
 			
-			manager.openScene(primaryStage, "/fxml/Homepage.fxml");
+			manager.openScene(primaryStage, Scenes.HOMEPAGE);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
