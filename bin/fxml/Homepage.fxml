@@ -14,7 +14,7 @@
             <Label layoutX="12.0" layoutY="6.0" styleClass="app__info--menu-item" text="Start" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane fx:id="signInPane" onMouseClicked="#openDocumentsList" prefHeight="300.0" prefWidth="400.0" styleClass="card" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="signInPane" onMouseClicked="#openSignInDocument" prefHeight="300.0" prefWidth="400.0" styleClass="card" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="100.0">
          <children>
             <Label layoutX="45.0" layoutY="150.0" maxWidth="310.0" styleClass="card__label--header" text="Podpisz dokument" wrapText="true" />
             <Label layoutX="45.0" layoutY="200.0" maxWidth="310.0" styleClass="card__label--description" text="Wybierz tą opcję, aby podpisać nowy dokument. Obsługiwany format plików to pdf." wrapText="true" />
@@ -28,7 +28,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="documentsPane" prefHeight="300.0" prefWidth="400.0" styleClass="card" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="documentsPane" onMouseClicked="#openDocumentsList" prefHeight="300.0" prefWidth="400.0" styleClass="card" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="100.0">
          <children>
             <Label layoutX="45.0" layoutY="150.0" maxWidth="310.0" styleClass="card__label--header" text="Wyświetl dokumenty" wrapText="true" />
             <Label layoutX="45.0" layoutY="200.0" maxWidth="310.0" styleClass="card__label--description" text="Wyświetl wszystkie podpisane oraz otrzymane dokumenty." wrapText="true" />

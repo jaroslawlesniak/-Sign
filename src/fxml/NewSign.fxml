@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <AnchorPane minWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="30.0" style="-fx-background-color: #2E384D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -24,7 +23,7 @@
          <children>
             <Label layoutX="120.0" layoutY="55.0" styleClass="card__label--description" text="1. Wybierz dokument do podpisania" textAlignment="CENTER" />
             <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--description" text="2. Wpisz adres IP odbiorcy" textAlignment="CENTER" />
-            <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Wygeneruj sygnaturę" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Poczekaj na wygenerowanie sygnatury" textAlignment="CENTER" />
             <Label layoutX="120.0" layoutY="145.0" styleClass="card__label--description" text="4. Zamknij okno potwierdzenia" textAlignment="CENTER" />
          </children>
       </Pane>

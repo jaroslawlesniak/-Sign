@@ -24,7 +24,7 @@ public class Homepage {
 		manager.openScene(documentsPane, "/fxml/DocumentsList.fxml");
 	}
 	
-	public void openSignInDOcument() {
+	public void openSignInDocument() {
 		SceneManager manager = new SceneManager();
 
 		manager.openScene(documentsPane, "/fxml/NewSign.fxml");
