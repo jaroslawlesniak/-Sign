@@ -22,9 +22,8 @@
       <Pane prefHeight="220.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
          <children>
             <Label layoutX="120.0" layoutY="55.0" styleClass="card__label--description" text="1. Wybierz dokument do podpisania" textAlignment="CENTER" />
-            <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--description" text="2. Wpisz adres IP odbiorcy" textAlignment="CENTER" />
-            <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Poczekaj na wygenerowanie sygnatury" textAlignment="CENTER" />
-            <Label layoutX="120.0" layoutY="145.0" styleClass="card__label--description" text="4. Zamknij okno potwierdzenia" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--description" text="2. Poczekaj na wygenerowanie sygnatury" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Zamknij okno potwierdzenia" textAlignment="CENTER" />
          </children>
       </Pane>
       <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
