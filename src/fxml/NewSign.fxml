@@ -27,6 +27,6 @@
             <Label layoutX="120.0" layoutY="145.0" styleClass="card__label--description" text="4. Zamknij okno potwierdzenia" textAlignment="CENTER" />
          </children>
       </Pane>
-      <Button mnemonicParsing="false" styleClass="btn__dark--action" text="Wybierz dokument" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
+      <Button mnemonicParsing="false" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
    </children>
 </AnchorPane>

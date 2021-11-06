@@ -27,6 +27,7 @@ public class SceneManager {
 
 			stage.setScene(scene);
 			stage.setMaximized(true);
+			stage.setTitle("µSign | Podpisywanie dokumentów");
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
