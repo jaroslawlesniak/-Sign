@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="700.0" minWidth="1200.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewSign">
+   <children>
+      <Pane prefHeight="30.0" style="-fx-background-color: #2E384D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="start" layoutX="12.0" layoutY="6.0" onMouseClicked="#backToHomepage" styleClass="app__info--menu-item" text="Start" textFill="WHITE" />
+            <Label layoutX="42.0" layoutY="6.0" text="/" textFill="WHITE" />
+            <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Podpisywanie dokumentu" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane fx:id="info" prefHeight="220.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
+         <children>
+            <Label layoutX="120.0" layoutY="55.0" styleClass="card__label--description" text="1. Wybierz dokument do podpisania" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--description" text="2. Poczekaj na wygenerowanie sygnatury" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Zamknij okno potwierdzenia" textAlignment="CENTER" />
+         </children>
+      </Pane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Podpisz dokument" textAlignment="CENTER" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
+      <ScrollPane fx:id="preview" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #525659;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0">
+         <content>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints fillWidth="false" halignment="CENTER" percentWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox fx:id="previewElements" alignment="TOP_RIGHT" style="-fx-padding: 75;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <children>
+                        <ImageView fx:id="img" accessibleText="Test" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D minX="1200.0" minY="1200.0" width="1200.0" />
+                           </viewport>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onMouseClicked="#signDocument" styleClass="btn__action--action" text="Podpisz dokument" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <GridPane fx:id="success" alignment="CENTER" prefWidth="1200.0" style="-fx-background-color: #23AB70;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../resources/success.png" />
+               </image>
+            </ImageView>
+            <Label style="-fx-text-fill: #FFF; -fx-font-size: 16;" text="Dokument został pomyślnie podpisany. Możesz wrócić do strony głównej albo podpisać nowy dokument.">
+               <GridPane.margin>
+                  <Insets top="150.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Button mnemonicParsing="false" onMouseClicked="#backToHomepage" styleClass="btn__secondary--action" text="Wróć do strony głównej">
+               <GridPane.margin>
+                  <Insets top="275.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

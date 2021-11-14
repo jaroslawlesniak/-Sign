@@ -85,3 +85,37 @@
     -fx-background-insets: 0;
 }
 
+.document {
+	-fx-padding: 25;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 25, 0, 0, 0);
+	-fx-background-color: #FFF;
+}
+
+.document .not-signed {
+	-fx-background-color: #ebb0b0;
+}
+
+.document .header {
+	-fx-font-size: 20;
+}
+
+.document .info {
+	-fx-text-fill: #999;
+}
+
+.document:hover {
+	-fx-background-color: #2E384D;
+	-fx-cursor: hand; 
+}
+
+.document:hover  .header, .document:hover  .info {
+	-fx-text-fill: #FFF;
+}
+
+.divider {
+	
+}
+
+.subheader {
+	-fx-font-size: 18;
+}
