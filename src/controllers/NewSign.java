@@ -11,12 +11,16 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -42,6 +46,9 @@ public class NewSign {
 	
 	@FXML
 	ImageView img;
+	
+	@FXML
+	GridPane success;
 	
 	public void backToHomepage() {
 		SceneManager manager = new SceneManager();
@@ -91,5 +98,10 @@ public class NewSign {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void signDocument() {
+		success.setVisible(true);
+		preview.setVisible(false);
 	}
 }

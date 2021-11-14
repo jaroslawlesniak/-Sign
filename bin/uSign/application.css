@@ -43,7 +43,7 @@
 	-fx-text-fill: #FFF;
 }
 
-.btn__light--action, .btn__dark--action, .btn__action--action {
+.btn__light--action, .btn__dark--action, .btn__action--action, .btn__secondary--action {
 	-fx-cursor: hand;
 	-fx-padding: 10 25;
 }
@@ -61,6 +61,11 @@
 .btn__action--action {
 	-fx-background-color: #23AB70;
 	-fx-text-fill: #FFF;
+}
+
+.btn__secondary--action {
+	-fx-background-color: #FFF;
+	-fx-text-fill: #000;
 }
 
 .scroll-pane > .viewport {
