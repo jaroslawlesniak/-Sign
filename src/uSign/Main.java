@@ -2,15 +2,23 @@ package uSign;
 	
 import enums.Scenes;
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage stage) {
 		try {
+			Rectangle2D bounds = Screen.getPrimary().getBounds();
 			SceneManager manager = new SceneManager();
-			
-			manager.openScene(primaryStage, Scenes.HOMEPAGE);
+				
+			manager.openScene(stage, Scenes.HOMEPAGE);
+
+			stage.setWidth(bounds.getWidth());
+			stage.setHeight(bounds.getHeight());
+			stage.setMaximized(true);
+			stage.setTitle("µSign | Podpisywanie dokumentów");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

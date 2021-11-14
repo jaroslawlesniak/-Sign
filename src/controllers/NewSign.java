@@ -73,8 +73,6 @@ public class NewSign {
 	        img.setImage(image);
 	        
 	        previewElements.setVgap(25.0f);
-	        preview.setFitToWidth(true);
-	        preview.setFitToHeight(true);
 	        
 		    preview.setVisible(true);
 

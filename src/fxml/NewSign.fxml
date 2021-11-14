@@ -35,7 +35,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
-      <ScrollPane fx:id="preview" hbarPolicy="ALWAYS" style="-fx-background-color: #525659;" vbarPolicy="NEVER" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
+      <ScrollPane fx:id="preview" style="-fx-background-color: #525659;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
         <content>
           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-padding: 75; -fx-background-color: #525659;">
                <children>

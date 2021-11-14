@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class SceneManager {
 	public <T extends Node> void openScene(T node, Scenes scene) {
@@ -21,6 +22,15 @@ public class SceneManager {
 	public static <T extends Node> Stage GetCurrentStage(T node) {
 		return (Stage) node.getScene().getWindow();
 	}
+	
+	public double getWindowWidth(Stage stage) {
+		System.out.println(stage.getScene());
+		return stage.getScene().getWindow().getWidth();
+	}
+	
+	public double getWindowHeight(Stage stage) {
+		return stage.getScene().getWindow().getHeight();
+	}
 
 	private void setScene(Stage stage, Scenes sceneUrl) {
 		try {
@@ -30,8 +40,6 @@ public class SceneManager {
 			scene.getStylesheets().add(getClass().getResource("/uSign/application.css").toExternalForm());
 
 			stage.setScene(scene);
-			stage.setMaximized(true);
-			stage.setTitle("µSign | Podpisywanie dokumentów");
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
