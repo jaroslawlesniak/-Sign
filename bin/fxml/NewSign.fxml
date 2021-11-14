@@ -4,24 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane minWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewSign">
+<AnchorPane minWidth="1200.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewSign">
    <children>
       <Pane prefHeight="30.0" style="-fx-background-color: #2E384D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label fx:id="start" layoutX="12.0" layoutY="6.0" onMouseClicked="#backToHomepage" styleClass="app__info--menu-item" text="Start" textFill="WHITE" />
             <Label layoutX="42.0" layoutY="6.0" text="/" textFill="WHITE" />
             <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Podpisywanie dokumentu" textFill="WHITE" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-         <children>
-            <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Podpisz dokument" textAlignment="CENTER" />
          </children>
       </Pane>
       <Pane fx:id="info" prefHeight="220.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
@@ -31,23 +25,28 @@
             <Label layoutX="120.0" layoutY="115.0" styleClass="card__label--description" text="3. Zamknij okno potwierdzenia" textAlignment="CENTER" />
          </children>
       </Pane>
-      <Pane layoutX="10.0" layoutY="10.0" prefHeight="220.0" style="-fx-background-color: #525659;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0" />
-      <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
-      <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #525659;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
-        <content>
-          <AnchorPane style="-fx-padding: 75; -fx-background-color: #525659;">
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <FlowPane fx:id="preview" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #525659;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Podpisz dokument" textAlignment="CENTER" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
+      <ScrollPane fx:id="preview" hbarPolicy="ALWAYS" style="-fx-background-color: #525659;" vbarPolicy="NEVER" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
+        <content>
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-padding: 75; -fx-background-color: #525659;">
+               <children>
+                  <FlowPane fx:id="previewElements" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #525659;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fx:id="img" accessibleText="Test" fitHeight="1200.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/dummy.png" />
-                           </image>
+                        <ImageView fx:id="img" accessibleText="Test" pickOnBounds="true" preserveRatio="true">
                            <viewport>
                               <Rectangle2D minX="1200.0" minY="1200.0" width="1200.0" />
                            </viewport>
                         </ImageView>
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" styleClass="btn__action--action" text="Podpisz dokument" />
                      </children>
                   </FlowPane>
                </children>

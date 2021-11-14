@@ -34,7 +34,10 @@ public class NewSign {
 	Pane info;
 	
 	@FXML
-	FlowPane preview;
+	ScrollPane preview;
+	
+	@FXML
+	FlowPane previewElements;
 	
 	@FXML
 	ImageView img;
@@ -61,30 +64,20 @@ public class NewSign {
 		    document.load(new File("C:/Users/Jarek/Downloads/dummy.pdf"));
 		    SimpleRenderer renderer = new SimpleRenderer();
 		    renderer.setResolution(300);
-//		    List<Image> images = renderer.render(document);
-		    
-//		    final ScrollPane scroll = new ScrollPane();
-//
-//	        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);    // Horizontal scroll bar
-//	        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);    // Vertical scroll bar
-//	        scroll.setContent(preview);
-//	        scroll.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-//	            @Override
-//	            public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds) {
-//	            	preview.setPrefWidth(bounds.getWidth());
-//	                preview.setPrefHeight(bounds.getHeight());
-//	            }
-//	        });
-//
-//	        //flow.setPrefWrapLength(170); // preferred width allows for two columns
 		    
 		    info.setVisible(false);
-		    preview.setVisible(true);
 		    
 	        Image image = new Image("https://p.calameoassets.com/190204115339-8f950dc015a8434c67b5064d0731a1d6/p1.jpg");
 	        System.out.println("Is loaded: " + image.isError());
 		    
 	        img.setImage(image);
+	        
+	        previewElements.setVgap(25.0f);
+	        preview.setFitToWidth(true);
+	        preview.setFitToHeight(true);
+	        
+		    preview.setVisible(true);
+
 //	        preview.().bind(vBox.heightProperty());
 	        
 //		    img.setImage("");

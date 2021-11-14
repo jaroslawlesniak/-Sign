@@ -43,9 +43,7 @@
 	-fx-text-fill: #FFF;
 }
 
-.btn__light--action, .btn__dark--action {
-	-fx-background-color: #FFF;
-	-fx-text-fill: #2E384D;
+.btn__light--action, .btn__dark--action, .btn__action--action {
 	-fx-cursor: hand;
 	-fx-padding: 10 25;
 }
@@ -59,3 +57,26 @@
 	-fx-background-color: #2E384D;
 	-fx-text-fill: #FFF;
 }
+
+.btn__action--action {
+	-fx-background-color: #23AB70;
+	-fx-text-fill: #FFF;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+
+.scroll-pane .corner {
+    -fx-background-insets: 0;
+}
+
