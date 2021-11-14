@@ -44,7 +44,7 @@
                   <VBox>
                      <children>
                         <Label styleClass="subheader" text="Dokumenty do podpisania" />
-                        <AnchorPane styleClass="document">
+                        <AnchorPane onMouseClicked="#openPreview" styleClass="document">
                            <children>
                               <Label styleClass="header" text="Upoważnienie.pdf" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Label styleClass="info" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0" />
@@ -66,7 +66,7 @@
                               <Insets top="75.0" />
                            </VBox.margin>
                         </Label>
-                        <AnchorPane styleClass="document">
+                        <AnchorPane onMouseClicked="#openPreview" styleClass="document">
                            <children>
                               <Label styleClass="header" text="Coś tam jeszcze innego.pdf" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Label styleClass="info" text="Dodano: 10.10.2021 15:12 • Od: Marcin Łukasik" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0" />
@@ -81,7 +81,7 @@
                               <Insets top="25.0" />
                            </VBox.margin>
                         </AnchorPane>
-                        <AnchorPane styleClass="document">
+                        <AnchorPane onMouseClicked="#openPreview" styleClass="document">
                            <VBox.margin>
                               <Insets top="25.0" />
                            </VBox.margin>

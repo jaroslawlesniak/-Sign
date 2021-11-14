@@ -14,4 +14,11 @@ public class DocumentsList {
 		
 		manager.openScene(start, Scenes.HOMEPAGE);
 	}
+	
+	
+	public void openPreview() {
+		SceneManager manager = new SceneManager();
+		
+		manager.openScene(start, Scenes.DOCUMENT_PREVIEW);
+	}
 }
