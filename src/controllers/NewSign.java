@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -37,7 +38,7 @@ public class NewSign {
 	ScrollPane preview;
 	
 	@FXML
-	FlowPane previewElements;
+	VBox previewElements;
 	
 	@FXML
 	ImageView img;
@@ -67,12 +68,12 @@ public class NewSign {
 		    
 		    info.setVisible(false);
 		    
-	        Image image = new Image("https://p.calameoassets.com/190204115339-8f950dc015a8434c67b5064d0731a1d6/p1.jpg");
+	        Image image = new Image("https://templates.invoicehome.com/invoice-template-us-neat-750px.png");
 	        System.out.println("Is loaded: " + image.isError());
 		    
 	        img.setImage(image);
 	        
-	        previewElements.setVgap(25.0f);
+	        previewElements.setSpacing(25);
 	        
 		    preview.setVisible(true);
 

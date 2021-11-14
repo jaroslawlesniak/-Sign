@@ -6,8 +6,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane minWidth="1200.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewSign">
    <children>
@@ -35,11 +38,17 @@
          </children>
       </AnchorPane>
       <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#openFileDialog" styleClass="btn__dark--action" text="Wybierz dokument do podpisania" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="105.0" />
-      <ScrollPane fx:id="preview" style="-fx-background-color: #525659;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
-        <content>
-          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-padding: 75; -fx-background-color: #525659;">
+      <ScrollPane fx:id="preview" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #525659;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0">
+         <content>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints fillWidth="false" halignment="CENTER" percentWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <FlowPane fx:id="previewElements" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #525659;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="previewElements" alignment="TOP_RIGHT" style="-fx-padding: 75;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <children>
                         <ImageView fx:id="img" accessibleText="Test" pickOnBounds="true" preserveRatio="true">
                            <viewport>
@@ -48,10 +57,10 @@
                         </ImageView>
                         <Button mnemonicParsing="false" styleClass="btn__action--action" text="Podpisz dokument" />
                      </children>
-                  </FlowPane>
+                  </VBox>
                </children>
-            </AnchorPane>
-        </content>
+            </GridPane>
+         </content>
       </ScrollPane>
    </children>
 </AnchorPane>
