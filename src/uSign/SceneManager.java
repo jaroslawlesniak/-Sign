@@ -24,7 +24,6 @@ public class SceneManager {
 	}
 	
 	public double getWindowWidth(Stage stage) {
-		System.out.println(stage.getScene());
 		return stage.getScene().getWindow().getWidth();
 	}
 	

@@ -20,9 +20,9 @@
          <children>
             <Label fx:id="start" layoutX="12.0" layoutY="6.0" onMouseClicked="#backToHomepage" styleClass="app__info--menu-item" text="Start" textFill="WHITE" />
             <Label layoutX="42.0" layoutY="6.0" text="/" textFill="WHITE" />
-            <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Podpisywanie dokumentu" textFill="WHITE" />
-            <Label layoutX="195.0" layoutY="6.0" text="/" textFill="WHITE" />
-            <Label layoutX="205.0" layoutY="6.0" styleClass="app__info--menu-item" text="Upoważnienie.pdf" textFill="WHITE" />
+            <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Lista dokumentów" textFill="WHITE" />
+            <Label layoutX="155.0" layoutY="6.0" text="/" textFill="WHITE" />
+            <Label layoutX="165.0" layoutY="6.0" styleClass="app__info--menu-item" text="Upoważnienie.pdf" textFill="WHITE" />
          </children>
       </Pane>
       <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">

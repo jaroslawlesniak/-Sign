@@ -17,7 +17,6 @@ public class DocumentPreview {
 	@FXML
 	protected void initialize() {
         Image image = new Image("https://templates.invoicehome.com/invoice-template-us-neat-750px.png");
-        System.out.println("Is loaded: " + image.isError());
 	    
         img.setImage(image);
 	}
