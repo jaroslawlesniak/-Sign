@@ -49,9 +49,9 @@
                 <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox fx:id="previewElements" alignment="TOP_RIGHT" style="-fx-padding: 75;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <VBox fx:id="previewElements" alignment="TOP_RIGHT" maxWidth="1000.0" style="-fx-padding: 75;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <children>
-                        <VBox fx:id="imagesPreview" maxWidth="1000.0" />
+                        <VBox fx:id="imagesPreview" />
                         <Button mnemonicParsing="false" onMouseClicked="#signDocument" styleClass="btn__action--action" text="Podpisz dokument" />
                      </children>
                   </VBox>
