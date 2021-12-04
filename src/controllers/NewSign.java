@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -51,29 +50,42 @@ public class NewSign {
 	}
 	
 	public void openFileDialog() {
+		Stage stage = SceneManager.GetCurrentStage(sign);
+
+		FileChooser fileChooser = new FileChooser();
+		ExtensionFilter fileExtensions = new FileChooser.ExtensionFilter("Dokumenty PDF", "*.pdf");
+
+		fileChooser.setTitle("Wybierz dokument do podpisania");
+		fileChooser.getExtensionFilters().add(fileExtensions);
+
+		File selectedFile = fileChooser.showOpenDialog(stage);
+		
+		if (isValid(selectedFile)) {
+			getPreview(selectedFile);
+		}
+	}
+
+	public void signDocument() {
+		success.setVisible(true);
+		preview.setVisible(false);
+	}
+
+	private void getPreview(File file) {
 		try {
-			Stage stage = SceneManager.GetCurrentStage(sign);
-
-			FileChooser fileChooser = new FileChooser();
-			ExtensionFilter fileExtensions = new FileChooser.ExtensionFilter("Dokumenty PDF", "*.pdf");
-
-			fileChooser.setTitle("Wybierz dokument do podpisania");
-			fileChooser.getExtensionFilters().add(fileExtensions);
-
-			fileChooser.showOpenDialog(stage);
-	
+			imagesPreview.getChildren().removeAll();
+			
 			PDFDocument document = new PDFDocument();
-		    document.load(new File("C:/Users/Jarek/Downloads/dummy.pdf"));
+		    document.load(new File(file.getPath()));
+
 		    SimpleRenderer renderer = new SimpleRenderer();
 		    renderer.setResolution(300);
 
 		    List<java.awt.Image> images = renderer.render(document);
 		    
-		    info.setVisible(false);
-		           
 	        previewElements.setSpacing(25);
 	        imagesPreview.setSpacing(25);
-	        
+
+	        info.setVisible(false);
 		    preview.setVisible(true);
 		    
 		    for (java.awt.Image generated : images) {
@@ -85,14 +97,13 @@ public class NewSign {
 	    		previewImage.setPreserveRatio(true);
 	    		
 	    		imagesPreview.getChildren().add(previewImage);
-			}
+			}	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void signDocument() {
-		success.setVisible(true);
-		preview.setVisible(false);
+	private boolean isValid(File file) {
+		return file != null;
 	}
 }
