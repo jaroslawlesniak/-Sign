@@ -1,11 +1,13 @@
 package controllers;
 
 import java.io.File;
+import java.util.List;
 
 import org.ghost4j.document.PDFDocument;
 import org.ghost4j.renderer.SimpleRenderer;
 
 import enums.Scenes;
+import helpers.ImageConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,7 +39,7 @@ public class NewSign {
 	VBox previewElements;
 	
 	@FXML
-	ImageView img;
+	VBox imagesPreview;
 	
 	@FXML
 	GridPane success;
@@ -64,29 +66,25 @@ public class NewSign {
 		    document.load(new File("C:/Users/Jarek/Downloads/dummy.pdf"));
 		    SimpleRenderer renderer = new SimpleRenderer();
 		    renderer.setResolution(300);
+
+		    List<java.awt.Image> images = renderer.render(document);
 		    
 		    info.setVisible(false);
-		    
-	        Image image = new Image("https://templates.invoicehome.com/invoice-template-us-neat-750px.png");
-	        System.out.println("Is loaded: " + image.isError());
-		    
-	        img.setImage(image);
-	        
+		           
 	        previewElements.setSpacing(25);
+	        imagesPreview.setSpacing(25);
 	        
 		    preview.setVisible(true);
-
-//	        preview.().bind(vBox.heightProperty());
-	        
-//		    img.setImage("");
 		    
-//		    for (Image image : images) {
-//				javafx.scene.image.Image img = new javafx.scene.image.Image();
-//		    	 
-//		        // simple displays ImageView the image as is
-//	    		ImageView iv1 = new ImageView();
-//		        iv1.setImage(img);
-//			}
+		    for (java.awt.Image generated : images) {
+				var writable = ImageConverter.convertFromAwtToWritableImage(generated);
+		    	 
+	    		ImageView previewImage = new ImageView();
+	    		previewImage.setImage(writable);
+	    		previewImage.fitWidthProperty();
+	    		
+	    		imagesPreview.getChildren().add(previewImage);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
