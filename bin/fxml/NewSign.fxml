@@ -43,7 +43,7 @@
          <content>
             <GridPane alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints fillWidth="false" halignment="CENTER" percentWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" percentWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
@@ -51,7 +51,7 @@
                <children>
                   <VBox fx:id="previewElements" alignment="TOP_RIGHT" style="-fx-padding: 75;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <children>
-                        <VBox fx:id="imagesPreview" prefHeight="200.0" prefWidth="100.0" />
+                        <VBox fx:id="imagesPreview" maxWidth="1000.0" />
                         <Button mnemonicParsing="false" onMouseClicked="#signDocument" styleClass="btn__action--action" text="Podpisz dokument" />
                      </children>
                   </VBox>

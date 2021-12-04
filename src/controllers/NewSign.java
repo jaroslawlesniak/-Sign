@@ -81,7 +81,8 @@ public class NewSign {
 		    	 
 	    		ImageView previewImage = new ImageView();
 	    		previewImage.setImage(writable);
-	    		previewImage.fitWidthProperty();
+	    		previewImage.fitWidthProperty().bind(imagesPreview.widthProperty()); 
+	    		previewImage.setPreserveRatio(true);
 	    		
 	    		imagesPreview.getChildren().add(previewImage);
 			}
