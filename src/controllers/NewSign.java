@@ -72,7 +72,7 @@ public class NewSign {
 
 	private void getPreview(File file) {
 		try {
-			imagesPreview.getChildren().removeAll();
+			imagesPreview.getChildren().clear();
 			
 			PDFDocument document = new PDFDocument();
 		    document.load(new File(file.getPath()));
