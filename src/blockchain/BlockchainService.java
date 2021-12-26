@@ -1,15 +1,20 @@
 package blockchain;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BlockchainService {
-	public static ArrayList<Block> blockchain = new ArrayList<Block>();
-	
-	public static void main(String[] args)
-    {
-		blockchain.add(new Block(new BlockDto("Jan Kowalski"), "0"));
-		blockchain.add(new Block(new BlockDto("Jan Nowak"), blockchain.get(blockchain.size() - 1).hash));
-    }
+	public static ArrayList<Block> blockchain = new ArrayList<Block>() {};
+
+	public static int difficultyLevel = 5;
+
+	public static void addToChain(BlockDto data) {
+		Block block = new Block(new BlockDto("Jan Nowak", ""), blockchain.size() == 0 ? "" : blockchain.get(blockchain.size() - 1).hash, new Date().getTime());
+		
+		block.mineBlock(difficultyLevel);
+
+		blockchain.add(block);
+	}
 	
 	public static Boolean isChainValid()
 	{

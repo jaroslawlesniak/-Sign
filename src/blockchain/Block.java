@@ -1,7 +1,5 @@
 package blockchain;
 
-import java.util.Date;
-
 public class Block {
 	public String hash;
 	
@@ -9,16 +7,27 @@ public class Block {
 	
 	private BlockDto data;
 	
-	private long timestamp;
+	private long timeStamp;
 	
-	public Block(BlockDto data, String previousHash) {
+	public int nonce = 0;
+	
+	public Block(BlockDto data, String previousHash, long timeStamp) {
+		this.hash = "9999999999";
 		this.data = data;
 		this.previousHash = previousHash;
-		this.timestamp = new Date().getTime();
-		this.hash = this.calculateHash();
+		this.timeStamp = timeStamp;
+	}
+
+	public String calculateHash() {
+		return BlockchainCryptography.sha256(previousHash + Long.toString(timeStamp) + data.toString() + nonce);
 	}
 	
-	public String calculateHash() {
-		return BlockchainCryptography.sha256(previousHash + Long.toString(timestamp) + data.toString());
+	public void mineBlock(int prefix) {
+	    String prefixString = new String(new char[prefix]).replace('\0', '0');
+
+	    while (!hash.substring(0, prefix).equals(prefixString)) {
+	        nonce++;
+	        hash = calculateHash();
+	    }
 	}
 }

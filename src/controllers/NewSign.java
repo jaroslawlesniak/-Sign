@@ -6,7 +6,10 @@ import java.util.List;
 import org.ghost4j.document.PDFDocument;
 import org.ghost4j.renderer.SimpleRenderer;
 
+import blockchain.BlockDto;
+import blockchain.BlockchainService;
 import enums.Scenes;
+import helpers.FileConverter;
 import helpers.ImageConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,6 +46,8 @@ public class NewSign {
 	@FXML
 	GridPane success;
 	
+	File selectedFile;
+	
 	public void backToHomepage() {
 		SceneManager manager = new SceneManager();
 		
@@ -58,7 +63,7 @@ public class NewSign {
 		fileChooser.setTitle("Wybierz dokument do podpisania");
 		fileChooser.getExtensionFilters().add(fileExtensions);
 
-		File selectedFile = fileChooser.showOpenDialog(stage);
+		selectedFile = fileChooser.showOpenDialog(stage);
 		
 		if (isValid(selectedFile)) {
 			getPreview(selectedFile);
@@ -66,8 +71,16 @@ public class NewSign {
 	}
 
 	public void signDocument() {
-		success.setVisible(true);
-		preview.setVisible(false);
+		try {
+			String base64 = FileConverter.toBase64(selectedFile);
+			
+			BlockchainService.addToChain(new BlockDto("Jaros³aw Leœniak", base64));
+			
+			success.setVisible(true);
+			preview.setVisible(false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void getPreview(File file) {
