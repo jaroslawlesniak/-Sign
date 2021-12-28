@@ -1,5 +1,6 @@
 package uSign;
 	
+import blockchain.BlockchainService;
 import enums.Scenes;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
@@ -23,6 +24,8 @@ public class Main extends Application {
 			
 			stage.setMaximized(true);
 			stage.setTitle("µSign | Podpisywanie dokumentów");
+			
+			BlockchainService.loadFromFile();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

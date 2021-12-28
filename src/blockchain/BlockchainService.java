@@ -1,8 +1,13 @@
 package blockchain;
 
+import java.beans.XMLDecoder;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -51,6 +56,22 @@ public class BlockchainService {
 	        objectOut.writeObject(blockchain);
 	        objectOut.close();
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void loadFromFile() {
+		try {
+			FileInputStream fis = new FileInputStream("C:\\\\Users\\\\Jarek\\\\AppData\\\\Roaming\\\\uSign\\\\chain");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+ 
+            blockchain = (ArrayList<Block>) ois.readObject();
+ 
+            ois.close();
+            fis.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
