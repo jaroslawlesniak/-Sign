@@ -63,7 +63,7 @@ public class BlockchainService {
 	@SuppressWarnings("unchecked")
 	public static void loadFromFile() {
 		try {
-			FileInputStream fis = new FileInputStream("C:\\\\Users\\\\Jarek\\\\AppData\\\\Roaming\\\\uSign\\\\chain");
+			FileInputStream fis = new FileInputStream("C:\\Users\\Jarek\\AppData\\Roaming\\uSign\\chain");
             ObjectInputStream ois = new ObjectInputStream(fis);
  
             blockchain = (ArrayList<Block>) ois.readObject();

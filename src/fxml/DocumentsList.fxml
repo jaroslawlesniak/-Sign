@@ -43,25 +43,7 @@
                <children>
                   <VBox>
                      <children>
-                        <Label styleClass="subheader" text="Dokumenty do podpisania" />
-                        <AnchorPane onMouseClicked="#openPreview" styleClass="document">
-                           <children>
-                              <Label styleClass="header" text="Upoważnienie.pdf" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Label styleClass="info" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0" />
-                              <ImageView accessibleHelp="Test" accessibleRoleDescription="Test" accessibleText="Test" fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
-                                 <image>
-                                    <Image url="@../resources/padlock-green.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="25.0" />
-                           </VBox.margin>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </AnchorPane>
-                        <Label styleClass="subheader" text="Dokumenty podpisane">
+                        <Label styleClass="subheader" text="Podpisane dokumenty">
                            <VBox.margin>
                               <Insets top="75.0" />
                            </VBox.margin>
