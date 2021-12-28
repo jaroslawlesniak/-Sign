@@ -1,5 +1,9 @@
 package blockchain;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,6 +18,8 @@ public class BlockchainService {
 		block.mineBlock(difficultyLevel);
 
 		blockchain.add(block);
+		
+		saveToFile();
 	}
 	
 	public static Boolean isChainValid()
@@ -26,16 +32,26 @@ public class BlockchainService {
 	        previousBlock = blockchain.get(i - 1);
 	 
 	        if (!currentBlock.hash.equals(currentBlock.calculateHash())) {
-	            System.out.println("Hashes are not equal");
 	            return false;
 	        }
 	 
 	        if (!previousBlock.hash.equals(currentBlock.previousHash)) {
-	            System.out.println("Previous Hashes are not equal");
 	            return false;
 	        }
 	    }
 
 	    return true;
+	}
+	
+	public static void saveToFile() {
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream("C:\\Users\\Jarek\\AppData\\Roaming\\uSign\\chain");
+	        ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+	        objectOut.writeObject(blockchain);
+	        objectOut.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

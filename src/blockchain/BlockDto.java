@@ -1,6 +1,10 @@
 package blockchain;
 
-public class BlockDto {
+import java.io.Serializable;
+
+public class BlockDto implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	public String author;
 	
 	public String comment;
