@@ -14,6 +14,8 @@ import java.util.Date;
 
 public class BlockchainService {
 	public static ArrayList<Block> blockchain = new ArrayList<Block>() {};
+	
+	public static Block selectedBlock;
 
 	public static int difficultyLevel = 5;
 

@@ -69,8 +69,12 @@ public class DocumentsList {
 			
 			status.setFitWidth(20);
 			status.setFitHeight(20);
-			container.setOnMouseClicked(event -> manager.openScene(start, Scenes.DOCUMENT_PREVIEW));
-			
+
+			container.setOnMouseClicked(event -> {
+				BlockchainService.selectedBlock = block;
+				manager.openScene(start, Scenes.DOCUMENT_PREVIEW);
+			});
+
 			signedDocuments.getChildren().add(container);
 		}
 	}

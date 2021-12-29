@@ -18,6 +18,16 @@ public class SceneManager {
 		this.setScene(stage, scene);
 	}
 	
+	public <T extends Node, Q> void openScene(T node, Scenes scene, Q data) {
+		Stage stage = (Stage) node.getScene().getWindow();
+		
+		this.setScene(stage, scene);
+	}
+	
+	public <T> void openScene(Stage stage, Scenes scene, T data) {	
+		this.setScene(stage, scene);
+	}
+	
 	public static <T extends Node> Stage GetCurrentStage(T node) {
 		return (Stage) node.getScene().getWindow();
 	}

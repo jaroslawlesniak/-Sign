@@ -1,5 +1,9 @@
 package controllers;
 
+import java.util.ArrayList;
+
+import blockchain.Block;
+import blockchain.BlockchainService;
 import enums.Scenes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
