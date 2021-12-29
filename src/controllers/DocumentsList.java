@@ -23,6 +23,8 @@ public class DocumentsList {
 	@FXML
 	VBox signedDocuments;
 	
+	SceneManager manager = new SceneManager();
+	
 	@FXML
 	protected void initialize() {
 		ArrayList<Block> blocks = BlockchainService.blockchain;
@@ -31,14 +33,10 @@ public class DocumentsList {
 	}
 	
 	public void backToHomepage() {
-		SceneManager manager = new SceneManager();
-		
 		manager.openScene(start, Scenes.HOMEPAGE);
 	}
 	
 	public void openPreview() {
-		SceneManager manager = new SceneManager();
-		
 		manager.openScene(start, Scenes.DOCUMENT_PREVIEW);
 	}
 	
@@ -71,6 +69,7 @@ public class DocumentsList {
 			
 			status.setFitWidth(20);
 			status.setFitHeight(20);
+			container.setOnMouseClicked(event -> manager.openScene(start, Scenes.DOCUMENT_PREVIEW));
 			
 			signedDocuments.getChildren().add(container);
 		}
