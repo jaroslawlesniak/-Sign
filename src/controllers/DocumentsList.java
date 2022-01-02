@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,9 +31,13 @@ public class DocumentsList {
 	
 	@FXML
 	protected void initialize() {
-		ArrayList<Block> blocks = BlockchainService.blockchain;
-		
-		generateDocumentsList(blocks, signedDocuments);
+		try {
+			ArrayList<Block> blocks = BlockchainService.blockchain;
+			
+			generateDocumentsList(blocks, signedDocuments);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void backToHomepage() {
@@ -43,13 +48,13 @@ public class DocumentsList {
 		manager.openScene(start, Scenes.DOCUMENT_PREVIEW);
 	}
 	
-	private void generateDocumentsList(ArrayList<Block> blocks, VBox signedDocuments) {
+	private void generateDocumentsList(ArrayList<Block> blocks, VBox signedDocuments) throws IOException {
 		for (Block block : blocks) {
 			AnchorPane container = new AnchorPane();
 
 			Label title = new Label(block.data.fileName);
 			Label metaInformation = new Label("Dodano: " + DateService.toDate(block.timeStamp));
-			ImageView status = new ImageView(getClass().getResource("/resources/padlock-green.png").toExternalForm());
+			ImageView status = new ImageView(getClass().getResource(block.isValid() ? "/resources/padlock-green.png" : "/resources/padlock-red.png").toExternalForm());
 			
 			container.getStyleClass().add("document");
 			title.getStyleClass().add("header");

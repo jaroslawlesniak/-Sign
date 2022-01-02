@@ -26,27 +26,6 @@ public class BlockchainService {
 		return block;
 	}
 	
-	public static Boolean isChainValid()
-	{
-	    Block currentBlock;
-	    Block previousBlock;
-	 
-	    for (int i = 1; i < blockchain.size(); i++) {
-	        currentBlock = blockchain.get(i);
-	        previousBlock = blockchain.get(i - 1);
-	 
-	        if (!currentBlock.hash.equals(currentBlock.calculateHash())) {
-	            return false;
-	        }
-	 
-	        if (!previousBlock.hash.equals(currentBlock.previousHash)) {
-	            return false;
-	        }
-	    }
-
-	    return true;
-	}
-	
 	public static void saveToFile() {
 		FileOutputStream fileOut;
 		try {

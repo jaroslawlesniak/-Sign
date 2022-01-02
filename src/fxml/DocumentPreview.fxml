@@ -29,7 +29,7 @@
                   <Label fx:id="addedAt" layoutX="120.0" layoutY="125.0" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" />
                </children>
             </Pane>
-            <Label style="-fx-background-color: #23AB70; -fx-text-fill: #fff; -fx-font-weight: 700;" text="Sygnatura prawidłowa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label fx:id="signature" style="-fx-background-color: #23AB70; -fx-text-fill: #fff; -fx-font-weight: 700;" text="Sygnatura prawidłowa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <padding>
                   <Insets bottom="10.0" left="120.0" right="120.0" top="10.0" />
                </padding>

@@ -78,7 +78,7 @@ public class NewSign {
 			String base64 = FileConverter.toBase64(selectedFile);
 			
 			Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64, ""));
-			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.timeStamp + "-" + selectedFile.getName()));
+			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + selectedFile.getName()));
 			
 			success.setVisible(true);
 			preview.setVisible(false);

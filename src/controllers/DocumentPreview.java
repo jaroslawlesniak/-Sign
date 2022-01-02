@@ -35,6 +35,9 @@ public class DocumentPreview {
 	@FXML
 	Label comment;
 	
+	@FXML
+	Label signature;
+	
 	private boolean resized = false;
 	
 	@FXML
@@ -65,11 +68,19 @@ public class DocumentPreview {
 			}
 		});
 
-		Block block = BlockchainService.selectedBlock;
-		
-		addedAt.setText("Dodano: " + DateService.toDate(block.timeStamp));
-		title.setText("Dokument: " + block.data.fileName);
-		comment.setText(block.data.comment == "" ? "Brak" : block.data.comment);
+		try {
+			Block block = BlockchainService.selectedBlock;
+			
+			addedAt.setText("Dodano: " + DateService.toDate(block.timeStamp));
+			title.setText("Dokument: " + block.data.fileName);
+			comment.setText(block.data.comment == "" ? "Brak" : block.data.comment);
+			
+			boolean isValid = BlockchainService.selectedBlock.isValid();
+			
+			signature.setText(isValid ? "Sygnatura prawid³owa" : "Sygnatura nieprawid³owa");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void backToHomepage() {		

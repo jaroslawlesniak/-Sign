@@ -24,6 +24,6 @@ public class BlockDto implements Serializable {
 	
 	@Override
     public String toString() {
-        return String.format(fileName + ";" + fileBase64 +  ";" + comment);
+        return String.format(fileName + ";" + comment);
     }
 }

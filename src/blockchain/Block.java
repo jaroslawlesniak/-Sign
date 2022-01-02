@@ -1,6 +1,11 @@
 package blockchain;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import helpers.FileConverter;
 
 public class Block implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +28,11 @@ public class Block implements Serializable {
 	}
 
 	public String calculateHash() {
-		return BlockchainCryptography.sha256(previousHash + Long.toString(timeStamp) + data.toString() + nonce);
+		return BlockchainCryptography.sha256(previousHash + Long.toString(timeStamp) + data.fileBase64 + data.toString() + nonce);
+	}
+	
+	public String calculateHash(String fileBase64) {
+		return BlockchainCryptography.sha256(previousHash + Long.toString(timeStamp) + fileBase64 + data.toString() + nonce);
 	}
 	
 	public void mineBlock(int prefix) {
@@ -37,5 +46,41 @@ public class Block implements Serializable {
 	
 	public String getFileName() {
 		return timeStamp + "-" + data.fileName;
+	}
+	
+	public boolean isValid() throws IOException {
+		Block currentBlock;
+	    Block previousBlock;
+
+	    ArrayList<Block> blockchain = getValidatableBlocks();
+
+	    for (int i = 1; i < blockchain.size(); i++) {
+	        currentBlock = blockchain.get(i);
+	        previousBlock = blockchain.get(i - 1);
+
+	        if (!currentBlock.hash.equals(currentBlock.calculateHash(FileConverter.toBase64(new File("C:\\Users\\Jarek\\Desktop\\signed\\" + currentBlock.getFileName()))))) {
+	            return false;
+	        }
+	 
+	        if (!previousBlock.hash.equals(currentBlock.previousHash)) {
+	            return false;
+	        }
+	    }
+
+	    return true;
+	}
+	
+	private ArrayList<Block> getValidatableBlocks() {
+		ArrayList<Block> blocks = new ArrayList<>();
+		
+		for (Block block : BlockchainService.blockchain) {
+			blocks.add(block);
+			
+			if (this.hash.equals(block.hash)) {
+				return blocks;
+			}
+		}
+		
+		return blocks;
 	}
 }
