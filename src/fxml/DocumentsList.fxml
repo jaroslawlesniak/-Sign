@@ -42,7 +42,7 @@
                      <children>
                         <Label styleClass="subheader" text="Podpisane dokumenty">
                            <VBox.margin>
-                              <Insets top="75.0" />
+                              <Insets />
                            </VBox.margin>
                         </Label>
                         <VBox fx:id="signedDocuments" prefHeight="200.0" prefWidth="100.0" />

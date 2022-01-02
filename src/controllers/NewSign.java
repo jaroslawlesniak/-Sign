@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 
 import org.ghost4j.document.PDFDocument;
 import org.ghost4j.renderer.SimpleRenderer;
@@ -14,8 +15,10 @@ import helpers.FileConverter;
 import helpers.ImageConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
@@ -77,8 +80,24 @@ public class NewSign {
 		try {
 			String base64 = FileConverter.toBase64(selectedFile);
 			
-			Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64, ""));
-			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + selectedFile.getName()));
+			TextInputDialog dialog = new TextInputDialog();
+
+	        dialog.setTitle("Dodawanie komentarza");
+	        dialog.setHeaderText("Mo¿esz opcjonalnie dodaæ komentarz do tego dokumentu?");
+
+	        ((Button) dialog.getDialogPane().lookupButton(ButtonType.OK)).setText("Dodaj");
+	        ((Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("Anuluj");
+	        
+	        Optional<String> result = dialog.showAndWait();
+	        
+	        String comment = "";
+	        
+	        if (result.isPresent()) {
+	        	comment = result.get();
+	        }
+			
+			Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64, comment));
+			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.getFileName()));
 			
 			success.setVisible(true);
 			preview.setVisible(false);

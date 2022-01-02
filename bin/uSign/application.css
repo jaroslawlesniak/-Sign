@@ -128,3 +128,11 @@
 .subheader {
 	-fx-font-size: 18;
 }
+
+.valid {
+	-fx-background-color:  #23AB70;
+}
+
+.invalid {
+	-fx-background-color: #f44242;
+}

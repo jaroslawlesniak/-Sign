@@ -78,6 +78,7 @@ public class DocumentPreview {
 			boolean isValid = BlockchainService.selectedBlock.isValid();
 			
 			signature.setText(isValid ? "Sygnatura prawid³owa" : "Sygnatura nieprawid³owa");
+			signature.getStyleClass().add(isValid ? "valid" : "invalid");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
