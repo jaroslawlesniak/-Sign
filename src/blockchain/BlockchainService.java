@@ -1,12 +1,7 @@
 package blockchain;
 
-import java.beans.XMLDecoder;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -17,10 +12,10 @@ public class BlockchainService {
 	
 	public static Block selectedBlock;
 
-	public static int difficultyLevel = 5;
+	public static int difficultyLevel = 3;
 
 	public static Block addToChain(BlockDto data) {
-		Block block = new Block(new BlockDto("Jan Nowak", ""), blockchain.size() == 0 ? "" : blockchain.get(blockchain.size() - 1).hash, new Date().getTime());
+		Block block = new Block(data, blockchain.size() == 0 ? "" : blockchain.get(blockchain.size() - 1).hash, new Date().getTime());
 		
 		block.mineBlock(difficultyLevel);
 
@@ -75,7 +70,6 @@ public class BlockchainService {
             ois.close();
             fis.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

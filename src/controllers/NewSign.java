@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -76,7 +77,7 @@ public class NewSign {
 		try {
 			String base64 = FileConverter.toBase64(selectedFile);
 			
-			Block block = BlockchainService.addToChain(new BlockDto("Jaros³aw Leœniak", base64));
+			Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64));
 			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.timeStamp + "-" + selectedFile.getName()));
 			
 			success.setVisible(true);
@@ -88,15 +89,8 @@ public class NewSign {
 
 	private void getPreview(File file) {
 		try {
+			success.setVisible(false);
 			imagesPreview.getChildren().clear();
-			
-			PDFDocument document = new PDFDocument();
-		    document.load(new File(file.getPath()));
-
-		    SimpleRenderer renderer = new SimpleRenderer();
-		    renderer.setResolution(300);
-
-		    List<java.awt.Image> images = renderer.render(document);
 		    
 	        previewElements.setSpacing(25);
 	        imagesPreview.setSpacing(25);
@@ -104,11 +98,11 @@ public class NewSign {
 	        info.setVisible(false);
 		    preview.setVisible(true);
 		    
-		    for (java.awt.Image generated : images) {
-				var writable = ImageConverter.convertFromAwtToWritableImage(generated);
-		    	 
+		    List<WritableImage> previewImages = FileService.getPreview(selectedFile);
+		    
+		    for (WritableImage generated : previewImages) {
 	    		ImageView previewImage = new ImageView();
-	    		previewImage.setImage(writable);
+	    		previewImage.setImage(generated);
 	    		previewImage.fitWidthProperty().bind(imagesPreview.widthProperty()); 
 	    		previewImage.setPreserveRatio(true);
 	    		

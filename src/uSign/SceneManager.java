@@ -24,7 +24,7 @@ public class SceneManager {
 		this.setScene(stage, scene);
 	}
 	
-	public <T> void openScene(Stage stage, Scenes scene, T data) {	
+	public <T> void openScene(Stage stage, Scenes scene, T data) {
 		this.setScene(stage, scene);
 	}
 	

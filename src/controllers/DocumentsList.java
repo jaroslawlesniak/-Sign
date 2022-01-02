@@ -46,7 +46,7 @@ public class DocumentsList {
 		for (Block block : blocks) {
 			AnchorPane container = new AnchorPane();
 
-			Label title = new Label(block.hash);
+			Label title = new Label(block.data.fileName);
 			Label metaInformation = new Label("Dodano: " + toDate(block.timeStamp));
 			ImageView status = new ImageView(getClass().getResource("/resources/padlock-green.png").toExternalForm());
 			
