@@ -1,7 +1,9 @@
 package controllers;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import blockchain.Block;
 import blockchain.BlockchainService;
@@ -45,7 +47,7 @@ public class DocumentsList {
 			AnchorPane container = new AnchorPane();
 
 			Label title = new Label(block.hash);
-			Label metaInformation = new Label("Dodano: " + block.timeStamp + " * od: " + block.data.author);
+			Label metaInformation = new Label("Dodano: " + toDate(block.timeStamp));
 			ImageView status = new ImageView(getClass().getResource("/resources/padlock-green.png").toExternalForm());
 			
 			container.getStyleClass().add("document");
@@ -77,5 +79,9 @@ public class DocumentsList {
 
 			signedDocuments.getChildren().add(container);
 		}
+	}
+	
+	private String toDate(long timestamp) {
+		return new SimpleDateFormat("dd.MM.yyyy hh:mm:ss").format(timestamp);
 	}
 }
