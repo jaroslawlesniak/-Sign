@@ -107,7 +107,7 @@ public class NewSign {
 	    		previewImage.setPreserveRatio(true);
 	    		
 	    		imagesPreview.getChildren().add(previewImage);
-			}	
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
