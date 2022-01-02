@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="700.0" minWidth="1200.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DocumentPreview">
    <children>
@@ -26,8 +25,8 @@
          <children>
             <Pane prefHeight="240.0" prefWidth="1200.0" style="-fx-background-color: #F8FCFB;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Dokument: Upoważnienie.pdf" textAlignment="CENTER" />
-                  <Label layoutX="120.0" layoutY="125.0" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" />
+                  <Label fx:id="title" layoutX="120.0" layoutY="85.0" styleClass="card__label--header" text="Dokument: Upoważnienie.pdf" textAlignment="CENTER" />
+                  <Label fx:id="addedAt" layoutX="120.0" layoutY="125.0" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" />
                </children>
             </Pane>
             <Label style="-fx-background-color: #23AB70; -fx-text-fill: #fff; -fx-font-weight: 700;" text="Sygnatura prawidłowa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -50,33 +49,12 @@
                <content>
                   <VBox>
                      <children>
-                        <Label styleClass="subheader" text="Komentarze" />
-                        <AnchorPane>
-                           <children>
-                              <Label text="Jan Nowak • 11.10.2021 14:54" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Testowy komentarz" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
-                           </children>
+                        <Label styleClass="subheader" text="Komentarz" />
+                        <Label fx:id="comment" text="Testowy komentarz">
                            <VBox.margin>
                               <Insets top="25.0" />
                            </VBox.margin>
-                        </AnchorPane>
-                        <AnchorPane>
-                           <children>
-                              <Label text="Jan Nowak • 11.10.2021 14:54" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Testowy komentarz" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="25.0" />
-                           </VBox.margin>
-                        </AnchorPane>
+                        </Label>
                      </children>
                      <padding>
                         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

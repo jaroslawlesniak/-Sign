@@ -3,6 +3,7 @@ package controllers;
 import java.io.File;
 import java.util.List;
 
+import blockchain.Block;
 import blockchain.BlockchainService;
 import enums.Scenes;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
+import services.DateService;
 import services.FileService;
 import uSign.SceneManager;
 
@@ -23,6 +25,15 @@ public class DocumentPreview {
 	VBox imagesPreview;
 	
 	SceneManager manager = new SceneManager();
+	
+	@FXML
+	Label addedAt;
+	
+	@FXML
+	Label title;
+	
+	@FXML
+	Label comment;
 	
 	private boolean resized = false;
 	
@@ -54,7 +65,11 @@ public class DocumentPreview {
 			}
 		});
 
+		Block block = BlockchainService.selectedBlock;
 		
+		addedAt.setText("Dodano: " + DateService.toDate(block.timeStamp));
+		title.setText("Dokument: " + block.data.fileName);
+		comment.setText(block.data.comment == "" ? "Brak" : block.data.comment);
 	}
 
 	public void backToHomepage() {		
