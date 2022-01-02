@@ -19,7 +19,7 @@ public class BlockchainService {
 
 	public static int difficultyLevel = 5;
 
-	public static void addToChain(BlockDto data) {
+	public static Block addToChain(BlockDto data) {
 		Block block = new Block(new BlockDto("Jan Nowak", ""), blockchain.size() == 0 ? "" : blockchain.get(blockchain.size() - 1).hash, new Date().getTime());
 		
 		block.mineBlock(difficultyLevel);
@@ -27,6 +27,8 @@ public class BlockchainService {
 		blockchain.add(block);
 		
 		saveToFile();
+		
+		return block;
 	}
 	
 	public static Boolean isChainValid()

@@ -6,6 +6,7 @@ import java.util.List;
 import org.ghost4j.document.PDFDocument;
 import org.ghost4j.renderer.SimpleRenderer;
 
+import blockchain.Block;
 import blockchain.BlockDto;
 import blockchain.BlockchainService;
 import enums.Scenes;
@@ -22,6 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import services.FileService;
 import uSign.SceneManager;
 
 public class NewSign {
@@ -74,7 +76,8 @@ public class NewSign {
 		try {
 			String base64 = FileConverter.toBase64(selectedFile);
 			
-			BlockchainService.addToChain(new BlockDto("Jaros³aw Leœniak", base64));
+			Block block = BlockchainService.addToChain(new BlockDto("Jaros³aw Leœniak", base64));
+			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.timeStamp + "-" + selectedFile.getName()));
 			
 			success.setVisible(true);
 			preview.setVisible(false);
