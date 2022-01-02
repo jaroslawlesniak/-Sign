@@ -19,9 +19,6 @@ public class Main extends Application {
 			stage.setWidth(bounds.getWidth());
 			stage.setHeight(bounds.getHeight());
 			
-//			stage.setWidth(1500);
-//			stage.setHeight(900);
-			
 			stage.setMaximized(true);
 			stage.setTitle("µSign | Podpisywanie dokumentów");
 			

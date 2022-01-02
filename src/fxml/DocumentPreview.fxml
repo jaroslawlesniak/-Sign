@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +17,7 @@
          <children>
             <Label fx:id="start" layoutX="12.0" layoutY="6.0" onMouseClicked="#backToHomepage" styleClass="app__info--menu-item" text="Start" textFill="WHITE" />
             <Label layoutX="42.0" layoutY="6.0" text="/" textFill="WHITE" />
-            <Label layoutX="52.0" layoutY="6.0" styleClass="app__info--menu-item" text="Lista dokumentów" textFill="WHITE" />
+            <Label layoutX="52.0" layoutY="6.0" onMouseClicked="#backToDocumentsList" styleClass="app__info--menu-item" text="Lista dokumentów" textFill="WHITE" />
             <Label layoutX="155.0" layoutY="6.0" text="/" textFill="WHITE" />
             <Label layoutX="165.0" layoutY="6.0" styleClass="app__info--menu-item" text="Upoważnienie.pdf" textFill="WHITE" />
          </children>
@@ -31,7 +30,6 @@
                   <Label layoutX="120.0" layoutY="125.0" text="Dodano: 13.11.2021 14:59 • Od: Jan Nowak" />
                </children>
             </Pane>
-            <Button fx:id="sign" mnemonicParsing="false" styleClass="btn__dark--action" text="Podpisz dokument" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="90.0" />
             <Label style="-fx-background-color: #23AB70; -fx-text-fill: #fff; -fx-font-weight: 700;" text="Sygnatura prawidłowa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <padding>
                   <Insets bottom="10.0" left="120.0" right="120.0" top="10.0" />
@@ -48,21 +46,6 @@
           <RowConstraints percentHeight="100.0" valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <ScrollPane fx:id="preview" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #525659;">
-               <content>
-                  <GridPane alignment="CENTER" style="-fx-padding: 25;">
-                    <columnConstraints>
-                      <ColumnConstraints fillWidth="false" halignment="CENTER" percentWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <VBox fx:id="imagesPreview" alignment="TOP_RIGHT" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                     </children>
-                  </GridPane>
-               </content>
-            </ScrollPane>
             <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <content>
                   <VBox>
@@ -101,6 +84,28 @@
                   </VBox>
                </content>
             </ScrollPane>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints percentHeight="100.0" valignment="TOP" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ScrollPane fx:id="preview" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: #525659;">
+                     <content>
+                        <VBox fx:id="imagesPreview" alignment="TOP_CENTER">
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                     <opaqueInsets>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </opaqueInsets>
+                  </ScrollPane>
+               </children>
+            </GridPane>
          </children>
       </GridPane>
    </children>
