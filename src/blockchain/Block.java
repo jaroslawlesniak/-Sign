@@ -34,4 +34,8 @@ public class Block implements Serializable {
 	        hash = calculateHash();
 	    }
 	}
+	
+	public String getFileName() {
+		return timeStamp + "-" + data.fileName;
+	}
 }

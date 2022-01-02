@@ -38,7 +38,7 @@ public class DocumentPreview {
 			resized = true;
 			
 			try {
-				List<WritableImage> previewImages = FileService.getPreview(new File("C:\\Users\\Jarek\\Desktop\\signed\\" + BlockchainService.selectedBlock.timeStamp + "-" + BlockchainService.selectedBlock.data.fileName));
+				List<WritableImage> previewImages = FileService.getPreview(new File("C:\\Users\\Jarek\\Desktop\\signed\\" + BlockchainService.selectedBlock.getFileName()));
 
 			    for (WritableImage generated : previewImages) {
 		    		ImageView previewImage = new ImageView();

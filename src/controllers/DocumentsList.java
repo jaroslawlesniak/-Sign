@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import services.DateService;
 import uSign.SceneManager;
 
 public class DocumentsList {
@@ -47,7 +48,7 @@ public class DocumentsList {
 			AnchorPane container = new AnchorPane();
 
 			Label title = new Label(block.data.fileName);
-			Label metaInformation = new Label("Dodano: " + toDate(block.timeStamp));
+			Label metaInformation = new Label("Dodano: " + DateService.toDate(block.timeStamp));
 			ImageView status = new ImageView(getClass().getResource("/resources/padlock-green.png").toExternalForm());
 			
 			container.getStyleClass().add("document");
@@ -79,9 +80,5 @@ public class DocumentsList {
 
 			signedDocuments.getChildren().add(container);
 		}
-	}
-	
-	private String toDate(long timestamp) {
-		return new SimpleDateFormat("dd.MM.yyyy hh:mm:ss").format(timestamp);
 	}
 }
