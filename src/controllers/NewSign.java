@@ -52,6 +52,9 @@ public class NewSign {
 	@FXML
 	GridPane success;
 	
+	@FXML
+	Pane loading;
+	
 	File selectedFile;
 	
 	public void backToHomepage() {

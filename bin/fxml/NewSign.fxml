@@ -87,5 +87,28 @@
             </Button>
          </children>
       </GridPane>
+      <GridPane fx:id="success1" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="1200.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+         </rowConstraints>
+         <children>
+            <ImageView fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../resources/loading-spinner.gif" />
+               </image>
+            </ImageView>
+            <Label style="-fx-text-fill: #000; -fx-font-size: 16;" text="Proszę czekać ...">
+               <GridPane.margin>
+                  <Insets top="150.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
