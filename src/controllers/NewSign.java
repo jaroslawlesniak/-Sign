@@ -53,7 +53,7 @@ public class NewSign {
 	GridPane success;
 	
 	@FXML
-	Pane loading;
+	GridPane loading;
 	
 	File selectedFile;
 	
@@ -92,18 +92,35 @@ public class NewSign {
 	        ((Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("Anuluj");
 	        
 	        Optional<String> result = dialog.showAndWait();
-	        
-	        String comment = "";
-	        
-	        if (result.isPresent()) {
-	        	comment = result.get();
-	        }
 			
-			Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64, comment));
-			FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.getFileName()));
-			
-			success.setVisible(true);
-			preview.setVisible(false);
+			loading.setVisible(true);
+	        
+	        Thread task = new Thread() {
+				@Override
+				public void run() {
+					try {
+				        String comment = "";
+
+				        if (result.isPresent()) {
+				        	comment = result.get();
+				        }
+
+						Block block = BlockchainService.addToChain(new BlockDto(selectedFile.getName(), base64, comment));
+						FileService.copy(selectedFile, new File("C:\\Users\\Jarek\\Desktop\\signed\\" + block.getFileName()));
+						loading.setVisible(false);
+						success.setVisible(true);
+						preview.setVisible(false);
+					}
+					catch (Exception e) {
+						e.printStackTrace();
+					}
+					finally {
+						loading.setVisible(false);
+					}
+				}
+			};
+
+			task.start();	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
